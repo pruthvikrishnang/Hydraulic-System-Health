@@ -1,0 +1,8 @@
+{
+  "alpha": 10.0,
+  "prediction_MSE": 4.968448229138754,
+  "sum_of_squared_weights_sum_w2": 324.92870144339054,
+  "l2_penalty_term_alpha_sum_w2": 3249.2870144339054,
+  "total_ridge_objective": 3254.255462663044,
+  "penalty_ratio_percent": 99.84732457896612
+}

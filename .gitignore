@@ -1,0 +1,27 @@
+# Python environment and caches
+.venv/
+env/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Large raw sensor datasets (over 600 MB - GitHub has 100MB file limit)
+data/raw/*.txt
+!data/raw/description.txt
+!data/raw/documentation.txt
+data/processed/*.csv
+data/*.csv
+
+# Local environment secrets
+.env
+.env.*
+!.env.example
+
+# OS and Editor artifacts
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.tmp
