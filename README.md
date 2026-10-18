@@ -117,21 +117,26 @@ Tree ensembles (ExtraTrees, RandomForest) are invariant to monotonic feature sca
 ---
 
 ## 10. Correlation and Covariance Analysis
-Implemented in `src/correlation_analysis.py`:
 
-### Mathematical Formulations:
+Implemented in `src/correlation_analysis.py`.
+
+### Mathematical Formulations
+
 - **Sample Covariance:**
-  $$\operatorname{Cov}(X, Y) = \frac{1}{n - 1} \sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})$$
-- **Pearson Correlation Coefficient ($r$):**
-  $$r_{XY} = \frac{\operatorname{Cov}(X, Y)}{\sigma_X \sigma_Y} \in [-1.0, +1.0]$$
 
-### Key Empirical Results:
-- `CE_mean` (Virtual cooling efficiency): $r = +0.998$ (Proxy for target).
-- `TS1_mean` (Cooling oil temperature): $r = -0.981$ (Strongest physical symptom).
-- `FS1_mean` (Primary volume flow rate): $r = +0.412$ (Fluid throughput association).
-- **Core Scientific Principle:** Correlation measures association, **not causation**. High oil temperature is a symptom of reduced cooling capacity, not the sole mechanical cause.
+  `Cov(X, Y) = [1 / (n - 1)] × Σ(xᵢ - x̄)(yᵢ - ȳ)`
 
----
+- **Pearson Correlation Coefficient (r):**
+
+  `r(X, Y) = Cov(X, Y) / (σₓ × σᵧ)`, where `-1 ≤ r ≤ +1`.
+
+### Key Empirical Results
+
+- `CE_mean` (Virtual cooling efficiency): **r = +0.998** — proxy for the target.
+- `TS1_mean` (Cooling oil temperature): **r = -0.981** — strongest physical symptom.
+- `FS1_mean` (Primary volume flow rate): **r = +0.412** — fluid throughput association.
+
+**Core Scientific Principle:** Correlation measures association, **not causation**. High oil temperature is associated with reduced cooling capacity, but it is not necessarily the sole mechanical cause.
 
 ## 11. Regression Models Implemented
 1. **Ordinary Least Squares (OLS) Linear Regression:** Fits hyperplane $\hat{y} = \mathbf{X}\mathbf{w} + b$ by minimizing unregularized MSE.
@@ -228,6 +233,13 @@ Evaluated via 5-Fold Cross-Validation on the 80% Training Set and validated on t
 | Calculus_Without_CE_CP | Ridge ($\alpha=10$) | 117 | 4.0817 | 3.8140 | 0.9919 |
 | Statistical_Without_CE_CP | Ridge ($\alpha=10$) | 57 | 4.5349 | 4.6663 | 0.9879 |
 | Best_Physical_Predictors | Manual Batch GD | 20 | — | 9.0055 | 0.9548 |
+
+
+### Test RMSE Comparison
+
+The chart below compares the test RMSE of the evaluated regression models. Lower RMSE indicates smaller prediction errors.
+
+![Hydraulic System Model Comparison](outputs/figures/hydraulic_test_rmse_comparison.png)
 
 ---
 
